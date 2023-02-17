@@ -9,10 +9,10 @@ Feature: Login page features
         And User clicks login button
         Then User should be successfully logged in and greeted
 
-    # Scenario Outline: Login using invalid credentials
-    #     Given User visits Jumbo Homepage
-    #     When User navigates to Jumbo Login Page
-    #     And User enters invalid credentials
-    #     And User clicks login button
-    #     And User checks alert message
-    #     Then User checks field error messages and should not be logged in
+    Scenario Outline: Login using invalid credentials
+        Given User visits Jumbo Homepage
+        When User navigates to Jumbo Login Page
+        And User enters invalid credentials
+        And User clicks login button
+        And User checks alert message
+        Then User checks field error messages and should not be logged in
