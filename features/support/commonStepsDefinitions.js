@@ -39,6 +39,16 @@ After( async function (scenario) {
     const screenshotData = await commonKeywords.screenshot(this.driver);
     this.attach(screenshotData, 'image/png');
   }
-  await commonKeywords.closeBrowser();
+  try{
+    await commonKeywords.sleep(2000)
+    await commonKeywords.verifyElementIsDisplayed("//body/h1[.='Access Denied']");
+    console.log('ALL SCENARIOS FAILED: Access Denied');
+    await commonKeywords.closeBrowser();
+  }
+  catch {
+    await commonKeywords.sleep(2000)
+    await commonKeywords.closeBrowser();
+  }
+  
   
 });

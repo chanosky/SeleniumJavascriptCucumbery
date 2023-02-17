@@ -197,6 +197,8 @@ This script has the following limitations:
 
 7. I did not place all test data in one file, based on my experience before in testing an ecommerce site, there are so many locators and test data added in one file and it was very hard to look at. Also it take a while to for you to find what you are looking for because they are added in just one file.
 
+8. When running using Github actions, I encounter the ACCESS DENIED issue. Please keep this in mind when checking. I also encounter this while creating the script, I needed to access VPN for me to bypass the issue.
+
 
 It is important to keep these limitations in mind when using this script and to thoroughly test the script on different operating systems before using it.
 
