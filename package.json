@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "homepagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html features/HomePage/HomePageFeature/HomePagePage.feature",
-    "loginpagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html features/LoginPage/LoginPageFeature/LoginPage.feature",
-    "productspagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html features/ProductsPage/ProductsPageFeature/ProductsPage.feature",
-    "productdetailspagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html features/ProductsDetailsPage/ProductsDetailsPageFeature/ProductsDetailsPage.feature",
-    "alltests": "cucumber-js -b -f html:features/Reports/htmlreports/output.html features/ProductsDetailsPage/ProductsDetailsPageFeature/ProductsDetailsPage.feature features/ProductsPage/ProductsPageFeature/ProductsPage.feature features/LoginPage/LoginPageFeature/LoginPage.feature features/HomePage/HomePageFeature/HomePage.feature"
+    "homepagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html -f @cucumber/pretty-formatter features/HomePage/HomePageFeature/HomePagePage.feature",
+    "loginpagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html -f @cucumber/pretty-formatter features/LoginPage/LoginPageFeature/LoginPage.feature",
+    "productspagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html -f @cucumber/pretty-formatter features/ProductsPage/ProductsPageFeature/ProductsPage.feature",
+    "productdetailspagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html -f @cucumber/pretty-formatter features/ProductsDetailsPage/ProductsDetailsPageFeature/ProductsDetailsPage.feature",
+    "alltests": "cucumber-js -b -f html:features/Reports/htmlreports/output.html -f @cucumber/pretty-formatter features/ProductsDetailsPage/ProductsDetailsPageFeature/ProductsDetailsPage.feature features/ProductsPage/ProductsPageFeature/ProductsPage.feature features/LoginPage/LoginPageFeature/LoginPage.feature features/HomePage/HomePageFeature/HomePage.feature"
   },
   "author": "",
   "license": "ISC",

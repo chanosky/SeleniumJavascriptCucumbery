@@ -46,7 +46,7 @@ module.exports = {
     loc_xpath_productdetails_productinfo_origin: "//div[@analytics-tag='origin collapsible']//div[@class='title-wrapper']",
 
 
-    loc_xpath_productdetails_footer: "//div[@class='footer-top-spacer']",
+    loc_xpath_productdetails_footer: "//div[@class='footer-top-container']",
 
     //Basket Section
     loc_xpath_productdetails_basket_header: "//h3[@class='jum-heading jum-basket-heading h3']//strong//font[contains(text(),'basket') or contains(text(),'Mandje')]",

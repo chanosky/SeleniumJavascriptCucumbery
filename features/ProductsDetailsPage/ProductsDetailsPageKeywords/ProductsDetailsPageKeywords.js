@@ -26,6 +26,7 @@ async function verifyProductDetailsPage(collapselist){
         };
       });               
     await commonKeywords.scrollToElement(ProductsDetailsPageLocators.loc_xpath_productdetails_footer);
+    await commonKeywords.sleep(3000);
     await commonKeywords.verifyElementIsDisplayed(ProductsDetailsPageLocators.loc_xpath_productdetails_sticky_addtobasket);
     await commonKeywords.verifyElementIsDisplayed(ProductsDetailsPageLocators.loc_xpath_productdetails_sticky_current_price);
     await commonKeywords.verifyElementIsDisplayed(ProductsDetailsPageLocators.loc_xpath_productdetails_sticky_productname);
@@ -124,7 +125,7 @@ async function addToCart(numberofitem){
 async function verifyBasket(){
     await commonKeywords.sleep(1000);
     await commonKeywords.clickElement(ProductsDetailsPageLocators.loc_xpath_productdetails_basket);
-    await commonKeywords.sleep(1000);
+    await commonKeywords.sleep(4000);
     await commonKeywords.verifyElementIsDisplayed(ProductsDetailsPageLocators.loc_xpath_productdetails_basket_add_product);
     await commonKeywords.verifyElementIsDisplayed(ProductsDetailsPageLocators.loc_xpath_productdetails_basket_categories);
     await commonKeywords.verifyElementIsDisplayed(ProductsDetailsPageLocators.loc_xpath_productdetails_basket_total_section);    

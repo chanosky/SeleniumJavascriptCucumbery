@@ -5,7 +5,7 @@ module.exports = {
     url: 'https://www.jumbo.com/',  //change this according to your preference
                                     //for the purpose of the test, I did not add any parameters for Staging, Dev and Prod environments yet
  
-    browser: 'chrome',   //change this according to your preference (tried using chrome, firefox)
+    browser: 'headlessfirefox',   //change this according to your preference (tried using chrome, firefox)
                          //headlesschrome does not work because of CSP related issues.
                          //headlessfirefox is somewhat flaky but it is still working.
 

@@ -1,6 +1,7 @@
 const HomePageLocators = require('../HomePageLocators/HomePageLocators.js');
 const commonKeywords = require('../../support/commonKeywords.js');
 const {expect} = require("chai");
+const LoginPageLocators = require('../../LoginPage/LoginPageLocators/LoginPageLocators.js');
 
 
 async function clickAcceptCookiesButton(){
@@ -217,8 +218,9 @@ async function verifyShoppingLists(list, listcount, listtext){
 };
 
 async function nameGreetingHomePage(greet){
-    await commonKeywords.sleep(1000);
-    await commonKeywords.verifyElementIsDisplayed(HomePageLocators.loc_xpath_myjumbo_button);    
+    await commonKeywords.sleep(10000);
+    await commonKeywords.verifyElementIsDisplayed(HomePageLocators.loc_xpath_myjumbo_button);
+    await commonKeywords.sleep(3000);    
     let greeting = await commonKeywords.getlocatorText(HomePageLocators.loc_xpath_myjumbo_button);
     expect(greeting).to.be.oneOf(greet);
 };

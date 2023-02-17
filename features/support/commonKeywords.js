@@ -17,6 +17,7 @@ async function openBrowser(browser, url) {
         const chromeOptions = new chrome.Options();
         chromeOptions.excludeSwitches(['enable-automation']);
         chromeOptions.addArguments(['--disable-features=OutOfBlinkCors', '--disable-gpu', '--no-sandbox']);
+        chromeOptions.setUserPreferences({"credentials_enable_service": false,"profile.password_manager_enabled": false});
 
         driver = new webDriver.Builder()
         .forBrowser('chrome')
@@ -48,7 +49,8 @@ async function openBrowser(browser, url) {
         const chromeOptions = new chrome.Options();
         chromeOptions.headless();
         chromeOptions.excludeSwitches(['enable-automation']);
-        chromeOptions.addArguments(['--disable-features=OutOfBlinkCors']);
+        chromeOptions.addArguments(['--disable-features=OutOfBlinkCors', '--disable-gpu', '--no-sandbox']);
+        chromeOptions.setUserPreferences({"credentials_enable_service": false,"profile.password_manager_enabled": false});
 
         driver = new webDriver.Builder()
         .forBrowser('chrome')
@@ -319,6 +321,19 @@ async function scrollToElement(locator){
     else if (browserrules === 'firefox') { 
     let waitlocator = await driver.wait(until.elementLocated(byStrategy));
     await driver.executeScript("arguments[0].scrollIntoView();", waitlocator);
+    }
+    else if (browserrules === 'headlessfirefox') { 
+        let waitlocator = await driver.wait(until.elementLocated(byStrategy));
+        await driver.executeScript("arguments[0].scrollIntoView();", waitlocator);
+        }
+    else if (browserrules === 'headlesschrome') { 
+        let waitlocator = await driver.findElement(byStrategy);
+        await driver.wait(until.elementIsVisible(waitlocator),100000);
+        await driver.actions()
+        .scroll(0, 0, 0, 0, waitlocator)
+        .perform();
+    } else {
+        console.log('browser scroll not supported')
     }
 
 };
