@@ -1,0 +1,26 @@
+{
+  "name": "seleniumjavascriptcucumbery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "homepagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html features/HomePage/HomePageFeature/HomePagePage.feature",
+    "loginpagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html features/LoginPage/LoginPageFeature/LoginPage.feature",
+    "productspagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html features/ProductsPage/ProductsPageFeature/ProductsPage.feature",
+    "productdetailspagefeature": "cucumber-js -b -f html:features/Reports/htmlreports/output.html features/ProductsDetailsPage/ProductsDetailsPageFeature/ProductsDetailsPage.feature",
+    "alltests": "cucumber-js -b -f html:features/Reports/htmlreports/output.html features/ProductsDetailsPage/ProductsDetailsPageFeature/ProductsDetailsPage.feature features/ProductsPage/ProductsPageFeature/ProductsPage.feature features/LoginPage/LoginPageFeature/LoginPage.feature features/HomePage/HomePageFeature/HomePage.feature"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cucumber/cucumber": "^8.11.1",
+    "@cucumber/pretty-formatter": "^1.0.0",
+    "chai": "^4.3.7",
+    "chromedriver": "^110.0.0",
+    "geckodriver": "^3.2.0",
+    "selenium-webdriver": "^4.8.0"
+  },
+  "devDependencies": {
+    "cucumber-html-reporter": "^5.5.0"
+  }
+}
