@@ -1,105 +1,211 @@
-# API Automation Test for Best Buy API Playground
+# **Selenium Automation using Cucumber Framework (JS)**
 
-*This API Automation script uses the Mocha Framework, Chai.js and Axios to automate the testing of Best Buy API Playground, this test only covers the Services API* 
+  
 
-**The script will test the Services API by using a variety of test cases including:**
+*This automation script uses **Cucumber-js (Framework)**, **Selenium-Webdriver** and **Chai.js (Assertion)** libraries. This framework keeps in mind the user which will run and check the scripts. Using Gherkin syntax in a more declarative approach will definitely help the user understand what the tests are about.*
 
-	 TC 1 - Verify GET/services should display correct and default values and should display status 200
-	 TC 2 - Verify GET/services api limit filter should be working as expected and should have response 200
-	 TC 3 - Verify GET/services api limit parameter should not accept letters and should yield error 500
-	 TC 4 - Verify GET/services api limit parameter should not accept symbols and should yield error 500
-	 TC 5 - Verify GET/services api skip functionality should be working as expected and should have response 200
-	 TC 6 - Verify GET/services api skip parameter should not accept letters and should yield error 500
-	 TC 7 - Verify GET/services api skip parameter should not accept symbols and should yield error 500
-	 TC 8 - Verify GET/services api skip and limit functionality should be working as expected and should have response 200 if both parameters are added
-	 TC 9 - Verify GET/services{id} api should return values specific to given id and should have response 200
-	 TC 10 - Verify POST/services api creates a new service object using a valid payload and should have response 201
-	 TC 11 - Verify POST/services api returns an error object upon using an invalid payload and should have response 400
-	 TC 12 - Verify DELETE/services api deletes a service object using a valid id and should have response 200
-	 TC 13 - Verify DELETE/services api should return an error using a non existing id and should have response 404
-	 TC 14 - Verify PATCH/services api updates a service object using a valid id and should have response 200
-	 TC 15 - Verify PATCH/services api should return an error using a non existing id and should have response 404
-	 TC 16 - Verify PATCH/services api should return an error using an invalid payload and should have response 500
+*The purpose of this automation script is for it to be **highly maintainable**, **easy to understand for users** and **to be used as early as possible in the development cycle**. This script also aims for it to be adaptable and should be ran in different environments.*
+  
+
+## JUMBO Web App Features
+
+**Feature 1: Home page features**
+
+As a customer I want to open the Jumbo website or APP so that I can learn
+more about what Jumbo has to offer
+
+ ***Scenario 1: Open the jumbo website or APP***
+
+- Given User visits Jumbo Homepage
+- When User navigates to Product menu and checks all sub menus
+- Then User checks all predefined lists in the home page
 
 
+------------------
+
+**Feature 2: Login page features**
+
+As a loyal customer I want to log-in with my My Jumbo account so that my
+shopping experience will be personalized
+
+***Scenario 1: Login with an existing customer***
+
+- Given User visits Jumbo Homepage
+- When User navigates to Jumbo Login Page
+- And User enters valid credentials
+- And User clicks login button
+- Then User should be successfully logged in and greeted
+
+ 
+***Scenario 2: Login using invalid credentials***
+
+- Given User visits Jumbo Homepage
+- When User navigates to Jumbo Login Page
+- And User enters invalid credentials
+- And User clicks login button
+- And User checks alert message
+- Then User checks field error messages and should not be logged in
+-------------------
+
+**Feature 3: Products page features**
+
+As a customer I want to search based on product names so that I can easily
+find my favorite products.
+
+***Scenario 1: Search for a product***
+
+- Given User visits Jumbo Homepage
+- When User searches the product
+- And User lands in the Products page
+- Then User validates the searched product price
+- And User validates the categories facet options count
+-------------------
+  
+  **Feature 4: Product details page features**
+
+As a customer I want to open the product detail page to get more
+information about the product.
+
+***Scenario 1: Open the product detail page***
+
+- Given User visits Jumbo Homepage
+- When User searches the product
+- And User lands in the Products page
+- And User selects a product in the Products page
+- And Then User lands in the Product details page
+- And User verifies price of the product is shown
+- And User validates breadcrumbs
+-------------------
+  
+As a customer I want to add the product to my basket so that I can create an order.
+
+***Scenario 2: Add a product to the basket from the product detail page***
+
+- Given User visits Jumbo Homepage
+- When User searches the product
+- And User lands in the Products page
+- And User selects a product in the Products page
+- And Then User lands in the Product details page
+- And User add items to cart and validate basket item count is increased
+- And User validates breadcrumbs
+- And User removes the product from the basket
+
+## Automation Framework features
+
+ - **Locator Strategy**
+This locator strategy can do wonders in Selenium Frameworks, since selenium use locators for finding elements, these are mostly the ones changed in the UI. The problem here is Selenium needs the "By" class and should be partnered with the type of locator. For example: We used xpath in the findElement code, but we need to change it to ID or Class, we needed to change both the (findElement(By)) code and the locator. The locator strategy minimizes that kind of work.
+
+***User can use locator types for xpath, css, ID, Name, Class and TagName but naming conventions should be followed when declaring some of them.***
+
+			 TagName - should have a prefix of tag_
+			 Class - should have a prefix of class_
+			 ID - should have a prefix of id_
+			 Name - should have a prefix of name_
+			 xpath - should have a prefix of //
+			 css- should have a prefix of . or #
+
+ - **Keyword Driven Approach**
+	By using the keyword driven approach. We future proof our automation framework. This will make us create additional steps easily since we already have the base of our codes. New engineers can adapt to this easily since they will just reuse the keywords for them to create new scripts. Since we already have the base codes and also the keywords, we can now create automation scripts earlier in the development.
+
+-   **Page Object Model structure**  
+This automation framework uses a Page Object Model structure, one of the advantages of this is that we organize our test scripts and keywords according to the page associated with it. We can avoid clutter and confusion if more tests are added to the framework later on. Maintainability will be very easy, since we will just change something associated in the page we are working on and should not affect other pages.
+
+-   **HTML report after the test run**  
+There will be a report generated automatically after the run. This will be stored in the `Reports/htmlreports` directory.
+
+-   **Screenshot automation is failed**  
+When a script encounters an error, there will be a screenshot of the page when we encountered the error. It will be stored in the `screenshots` directory and will be attached to the html report after execution.
+
+-   **Multiple browser support**  
+The automation framework supports 2 browsers (Chrome and Firefox). Headless mode for both are also supported but with headless chrome, there is a CSP issue. Change the browser in the `globalTestdata.js` file
+
+			 
+
+  
 # Prerequisites
 
-Here are the prerequisites in order to run the script:
+  **Here are the prerequisites in order to run the script:**
 
- - [ ] git 2.33.0.windows.2 or latest should be installed for windows in order to take advantage of git commands in the command line
- - [ ] nodejs v17.6.0 or latest, should be built in with the latest "npm"
- - [ ] Mocha.js v10.2.0 or latest (will automatically be installed using the package.json file)
- - [ ] Axios v1.3.2 or latest (will automatically be installed using the package.json file)
- - [ ] Chai.js v4.3.7 or latest (will automatically be installed using the package.json file)
- - [ ] Mocha Tags v1.0.1 or latest (will automatically be installed using the package.json file)
- - [ ] Mochawesome v7.1.3 or latest (will automatically be installed using the package.json file)
+Dependencies
+- [ ] nodejs v17.6.0 or latest, should be built in with the latest "npm"
 
-Another important prerequisite in order for us to run the script is to have the Best Buy API Playground app running in the background. This can be achieved by the following steps.
+- [ ] cucumber.js v8.11.1 or latest (will automatically be installed using the package.json file)
 
- 1. Install NodeJS on your system. You can download the latest version from the official website: https://nodejs.org/en/download/.
- 2. Open the installer and follow the prompts to install the Node.js. By default, the installer uses the Node.js distribution in C:\Program Files\nodejs. The installer should set the C:\Program Files\nodejs\bin directory in Window's PATH environment variable. Restart any open command prompts for the change to take effect.
- 3. Verify installation is successful by running `node -v` in command line, verify npm is also available by running `npm -v`in the command line as well. Both should show their respective versions.
- 4. Navigate to your desired folder in which you will place the app and enter the terminal (CMD for windows)
- 5. Visit https://github.com/BestBuy/api-playground and clone the application. Use the command  `git clone`  followed by the repository url to fetch the script from GitHub, for example:  `git clone https://github.com/BestBuy/api-playground.git` . User can also just dowload the repository and manually extract it on the desired folder 
- 6. Once the download is complete, navigate to `/api-playground folder`. Do not install it yet. I ran into issues when installing the app and cannot run the application. These are the troubleshooting steps that I've done to run it.
+- [ ] selenium_webdriver v4.8.0 or latest (will automatically be installed using the package.json file)
 
-    
-
-		Troubleshooting steps:
-		1. Change the version of "sqlite3" from 4.0.3 to 5.1.4.
-		2. Change one line of code in bestbuy-api-playground\src\db\index.js line 36 <FROM> var  model  =  sequelize['import'](path.join(__dirname,  file)); <TO> var  model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-		3. Run npm install and ignore all errors and warnings.
-		4. Run npm start.
-
- 8. Now open [http://localhost:3030](http://localhost:3030/) in your browser to begin exploring the API
- 9. Remember to start the app so that you won't encounter any issues when running the script.
-		 
+- [ ] chai.js v4.3.7 or latest (will automatically be installed using the package.json file)
 
 
-## How to run the API Automation Test
+Optional items
+- [ ] git 2.33.0.windows.2 or latest should be installed for windows in order to take advantage of git commands in the command line
+- [ ] chromedriver v110.0.0 or latest (will automatically be installed using the package.json file)
 
-Please see below the step-by-step procedure for fetching the API Automation Test for Best Buy API Playground script from GitHub, installing the necessary requirements, and running the script using the command line:
+- [ ] geckodriver v3.2.0 or latest (will automatically be installed using the package.json file)
+
+- [ ] cucumber pretty formatter v1.0.0 or latest (will automatically be installed using the package.json file)
+      ( *this will be just used for debugging purposes, it is not essential to run the script.*)
+
+
+# Steps to run
+
+## Get the script and install necessary stuff...
+1. Install NodeJS on your system. You can download the latest version from the official website: https://nodejs.org/en/download/.
+
+2. Open the installer and follow the prompts to install the Node.js. By default, the installer uses the Node.js distribution in C:\Program Files\nodejs. The installer should set the C:\Program Files\nodejs\bin directory in Window's PATH environment variable. Restart any open command prompts for the change to take effect.
+
+3. Verify installation is successful by running `node -v` in command line, verify npm is also available by running `npm -v`in the command line as well. Both should show their respective versions.
+
+4. Navigate to your desired folder in which you will place the app and enter the terminal (CMD for windows)
+
+5. Visit https://github.com/chanosky/SeleniumJavascriptCucumbery and clone the files. Use the command `git clone` followed by the repository url to fetch the script from GitHub, for example: `https://github.com/chanosky/SeleniumJavascriptCucumbery.git` . User can also just download the repository and manually extract it on the desired folder
+
+
+## How to run the automation test?
 
 1. Open a command prompt or terminal window and navigate to the directory where you want to store the script.
-2. Use the command `git clone` followed by the repository url to fetch the script from GitHub, for example: `https://github.com/chanosky/ServiceModuleAPITest.git` or just download the repository to your desired location.
-3. Navigate into the cloned repository by using the command `cd yourrepository` (make sure you are in the `/ServiceModuleAPITest` folder.)
-4. Install the necessary requirements by running the command `npm install`
-5. The test has multiple ways to run the automation tests, see commands below:
 
-			
+2. Navigate into the cloned repository by using the command `cd yourrepository` (make sure you are in the `/ServiceModuleAPITest` folder.)
 
-		 - npm run gettests
-			 - used to run GET/services requests
-		 - npm run othertests
-			 - used to run POST, DELETE and PATCH /services requests
-		 - npm run smoke
-			 - used to run tests tagged as smoke
-		 - npm run alltests
-			 - used to run all tests
+3. Install the necessary requirements by running the command `npm install`
 
- 6. There will be an html file and a json file which will be generated in the directory for the user to check the result of the test.
+4. The test has multiple ways to run the automation tests, see commands below:
+- run command `npm run homepagefeature` to run the Home Page features
+- run command `npm run loginpagefeature` to run the Login Page features
+- run command `npm run productspagefeature` to run the Products Page features
+- run command `npm run productdetailspagefeature` to run the Products Details Page features
+- run command `npm run alltests` to run the All features
 
-	
-		
+5. There will be an html file which will be generated in the features/Reports directory for the user to check the result of the test.
+6. Screenshots will also be generated for failed runs.  
+
 
 ## Limitations
 
-This script has the following limitations:
+This script has the following limitations:  
 
 1. The script has only been tested on a Windows 10 operating system. There may be compatibility issues when running the script on other operating systems such as MacOS, Linux, etc.
-       
-2. CI/CD for this script was not yet set up.
-    
+
+2. CI/CD for this script is not yet optimized, I just created a simple CI/CD using github actions if in case there will be a push in the code. This will then run all tests.
+
+3. Using headless chrome is not possible due to CSP (Content Security Policy). This limits the execution and will incur errors. 
+
+4. I'm using a VPN to be able to login or to navigate the Jumbo web app. This limits the speed of my browsing thus affects the speed of the automation script. Keep in mind that I use some sleep commands just to avoid race conditions and loading issues when running the script. This can be improved when the environment factors are taken care of.
+
+5. I was not able to automate all the nooks and crannies of the features. But I am very sure that I automated those added in the assignment.
+
+6. The locators can adapt to EN and NL languages, I used google translate to check the labels. But I was not able to test using the translated language (EN).
+
+7. I did not place all test data in one file, based on my experience before in testing an ecommerce site, there are so many locators and test data added in one file and it was very hard to look at. Also it take a while to for you to find what you are looking for because they are added in just one file.
+
+
 It is important to keep these limitations in mind when using this script and to thoroughly test the script on different operating systems before using it.
 
-> Do not change anything inside the folders, check the commented variables inside `ServiceAPITests\ServiceAPITestData\testdata.js`, you can play around with this test data file but changing any variables might incur errors when running.
+ 
+> Do not change anything inside the folders, check the commented variables inside `folders with testdata in their names`, you can play around with this test data file but changing any variables might incur errors when running.
 
-## Bugs and issues found
+  
 
-1. The max value of the limit parameter is only 25. Putting any number higher than 25 will not work.
+## Bugs and Suggestions found
 
-2. The limit and skip parameter does not have any validations for testing number of characters, it will accept any number of characters.
-
-3. The limit and skip parameter accepts leading spaces only. This should have validations.
-	
-4. Since the max value of the limit parameter is only 25, it cannot show services more than 25.
+ 
+1. The count displayed in the basket icon does not update when items are added or removed in the basket. This also occurs once you are inside the basket page. Page needs to be refreshed in order for the correct value to take effect.
