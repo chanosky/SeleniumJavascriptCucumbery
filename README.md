@@ -54,7 +54,7 @@ find my favorite products.
 
 ***Scenario 1: Search for a product***
 
-- Given User visits Jumbo Homepage
+- Given User visits Jumbo Homepage 
 - When User searches the product
 - And User lands in the Products page
 - Then User validates the searched product price
