@@ -5,7 +5,7 @@ const {expect} = require("chai");
 
 
 async function checkProductPageContents(searchedproductheader, categorieslabel, tonoticelabel, allergylabel, dietpreflabel, offerslabel){
-    await commonKeywords.sleep(1000);
+    await commonKeywords.sleep(3000);
     await commonKeywords.verifyElementIsDisplayed(ProductsPageLocators.loc_xpath_products_sort_dropdown);
     await commonKeywords.verifyElementIsDisplayed(ProductsPageLocators.loc_xpath_products_grid)
     await commonKeywords.verifyElementIsDisplayed(ProductsPageLocators.loc_xpath_products_categories_facet)
