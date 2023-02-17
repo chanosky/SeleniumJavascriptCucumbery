@@ -87,7 +87,6 @@ As a customer I want to add the product to my basket so that I can create an ord
 - And User selects a product in the Products page
 - And Then User lands in the Product details page
 - And User add items to cart and validate basket item count is increased
-- And User validates breadcrumbs
 - And User removes the product from the basket
 
 ## Automation Framework features
